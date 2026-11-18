@@ -1,3 +1,4 @@
+import '../css/styles.css';
 //Creating needed variables
 const inputTask = document.getElementById("inputTask");
 const addButton = document.getElementById("addButton");
