@@ -34,6 +34,8 @@ function validate(){
 function createCheckbox(newTask){
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
+//adding tailwindcss
+    checkbox.className = "w-5 h-5 shrink-0 cursor-pointer accent-purple-500";
 //Adding classes for checked/unchecked boxes
     checkbox.addEventListener("change", function(){
         if(checkbox.checked){
@@ -51,6 +53,10 @@ function createCheckbox(newTask){
 //Creating the delete button to delete the tasks
 function createDeleteButton(newTask){
     const deleteButton = document.createElement("button");
+//adding the tailwindcss
+    deleteButton.type = "button";
+    deleteButton.className = "ml-auto w-6 h-6 shrink-0 rounded-md bg-[#e9cafd] hover:bg-[#d5b4f2] shadow-sm cursor-pointer";
+    deleteButton.textContent = "×";
     deleteButton.id = "btn" + deleteButtonId;
     deleteButtonId++;
     deleteButton.addEventListener("click", function(){
@@ -64,7 +70,9 @@ function createDeleteButton(newTask){
 //Function to create a task. New task is unchecked by default
 function createTasks(task, completed = false){
     const newTask = document.createElement("li");
-newTask.dataset.task = task;
+//adding tailwindcss
+    newTask.className = "flex items-center gap-3 rounded-xl border border-[#b2a2de] bg-white/60 p-3 font-mono text-slate-700 transition-colors hover:bg-[#f5eafa]";
+    newTask.dataset.task = task;
     const checkbox = createCheckbox(newTask);
     const deleteButton = createDeleteButton(newTask);
     checkbox.checked = completed;
