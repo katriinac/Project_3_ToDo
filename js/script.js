@@ -8,6 +8,7 @@ const activeButton = document.querySelector("#active");
 const completedButton = document.querySelector("#completed");
 const charcount = document.querySelector("#charcount");
 const inputError = document.querySelector("#inputError");
+const emptyMessage = document.querySelector("#emptyMessage");
 
 let deleteButtonId = 1;
 
@@ -15,6 +16,11 @@ let deleteButtonId = 1;
 inputTask.addEventListener("input", function(){
     const task = inputTask.value;
     charcount.textContent = task.length + " / 100";
+//making the border disappear
+    if(task.trim().length >= 3 && task.trim().length <= 100){
+        inputTask.style.border = "";
+        inputError.textContent = "";
+    }
 });
 
 //Validtaing the input before the task is created
@@ -31,7 +37,7 @@ function validate(){
 }
 
 //Function to create checkboxes
-function createCheckbox(newTask){
+function createCheckbox(taskText){
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
 //adding tailwindcss
@@ -39,10 +45,10 @@ function createCheckbox(newTask){
 //Adding classes for checked/unchecked boxes
     checkbox.addEventListener("change", function(){
         if(checkbox.checked){
-            newTask.classList.add("checked");
+            taskText.classList.add("checked");
         }
         else{
-            newTask.classList.remove("checked");
+            taskText.classList.remove("checked");
         }
         taskDone();
         saveTask();
@@ -63,6 +69,7 @@ function createDeleteButton(newTask){
         newTask.remove();
         taskDone();
         saveTask();
+        showList();
     });
     return deleteButton;
 }
@@ -70,17 +77,19 @@ function createDeleteButton(newTask){
 //Function to create a task. New task is unchecked by default
 function createTasks(task, completed = false){
     const newTask = document.createElement("li");
-//adding tailwindcss
-    newTask.className = "flex items-center gap-3 rounded-xl border border-[#b2a2de] bg-white/60 p-3 font-mono text-slate-700 transition-colors hover:bg-[#f5eafa]";
+//adding tailwindcss and animate
+    newTask.className = "flex items-center gap-3 rounded-xl border border-[#b2a2de] bg-white/60 p-3 font-mono text-slate-700 transition-colors hover:bg-[#f5eafa] animate__animated animate__fadeInUp";
     newTask.dataset.task = task;
-    const checkbox = createCheckbox(newTask);
+    const taskText = document.createElement("span");
+    taskText.textContent = task;
+    const checkbox = createCheckbox(taskText);
     const deleteButton = createDeleteButton(newTask);
     checkbox.checked = completed;
     if(completed){
-        newTask.classList.add("checked");
+        taskText.classList.add("checked");
     }
     newTask.appendChild(checkbox);
-    newTask.appendChild(document.createTextNode(task));
+    newTask.appendChild(taskText);
     newTask.appendChild(deleteButton);
     taskList.appendChild(newTask);
 }
@@ -129,6 +138,13 @@ function showList(){
     for (let task of tasks){
         task.hidden = false;
     }
+    if(tasks.length === 0){
+        emptyMessage.textContent = "No tasks";
+        emptyMessage.classList.remove("hidden");
+    }
+    else{
+        emptyMessage.classList.add("hidden");
+    }
 }
 
 //Show the whole list when All button is presseed
@@ -140,8 +156,15 @@ showAll.addEventListener("click", function(){
 activeButton.addEventListener("click", function(){
     const checkboxes = document.querySelectorAll('#taskList input[type="checkbox"]:checked');
     showList();
+
     for (let checkbox of checkboxes){
         checkbox.parentElement.hidden = true;
+    }
+//showing the no tasks message if empty
+    const activeTasks = document.querySelectorAll('#taskList input[type="checkbox"]:not(:checked)');
+    if(activeTasks.length === 0){
+        emptyMessage.textContent = "No active tasks";
+        emptyMessage.classList.remove("hidden");
     }
 });
 
@@ -151,6 +174,12 @@ completedButton.addEventListener("click", function(){
     showList();
     for (let checkbox of checkboxes){
         checkbox.parentElement.hidden = true;
+    }
+//showing the no tasks message if empty
+    const completedTasks = document.querySelectorAll('#taskList input[type="checkbox"]:checked');
+    if(completedTasks.length === 0){
+        emptyMessage.textContent = "No completed tasks";
+        emptyMessage.classList.remove("hidden");
     }
 });
 
@@ -180,3 +209,21 @@ function loadTasks(){
 
 //To load all the data
 loadTasks();
+showList();
+//adding vanta background
+// Vanta fog background effect
+VANTA.FOG({
+    el: ".content",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    highlightColor: 0xf2b6e6,
+    midtoneColor: 0xd6a4e8,
+    lowlightColor: 0xb99adf,
+    baseColor: 0xfcd6f0,
+    blurFactor: 0.8,
+    zoom: 0.7,
+    speed: 2
+});

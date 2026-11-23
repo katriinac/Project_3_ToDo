@@ -15,12 +15,12 @@ input[type="checkbox"] {
 }
 input[type="checkbox"]:checked{
     background-color: #b9a2de;
-    box-shadow: 2px 2px rgb(241, 169, 241);
 }
 input[type="checkbox"]:checked::after {
     content: "✓";
     color: rgb(4, 4, 4);
     font-size: 14px;
+    font-weight: bold;
 }
 .checked{
     text-decoration: line-through;
@@ -28,4 +28,20 @@ input[type="checkbox"]:checked::after {
 .error{
     color: red;
     display: block;
+}
+.content {
+    position: relative;
+    overflow: hidden;
+}
+
+.content > :not(canvas) {
+    position: relative;
+    z-index: 1;
+}
+
+.content canvas {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    z-index: 0;
 }

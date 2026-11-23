@@ -4,22 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
     <script type="module" src="/js/script.js"></script>
 </head>
+
 <body class="min-h-screen flex justify-center items-center p-6 bg-[#eee8f7]">
     <div class="content w-full max-w-xl p-8 rounded-[30px] border-[3px] border-[#b2a2de] bg-[#fcd6f0] shadow-[3px_3px_0px_rgb(241,169,241)]">
+
         <h1 class="font-mono text-3xl font-bold text-slate-800 mb-6 [text-shadow:2px_2px_rgb(241,169,241)]">To do: </h1>
+
         <form id="taskForm" class="flex flex-row items-start gap-3">
+
             <div class="flex-1 min-w-0">
                 <input type="text" name="inputTask" id="inputTask" placeholder="Write your task here (min. 3 letters, max.100)" required aria-describedby="inputError" class="w-full rounded-lg border-2 border-white bg-white p-2 shadow-[2px_2px_rgb(241,169,241)] focus:outline-none">
                 <span id="inputError" class="error"></span>
             </div>
+
             <button id="addButton" class="shrink-0 rounded-lg bg-[#e5defa] px-4 py-2 font-mono shadow-[2px_2px_rgb(241,169,241)] hover:bg-[#d5c8f2] hover:scale-105 transition-all cursor-pointer">Add</button>
         </form>
-        <p id="charcount">0 / 100</p>
+        
+        <p id="charcount" class="font-mono">0 / 100</p>
 
         <ul id="taskList" class="mt-6 space-y-3 p-0 list-none">
-
+            <p id="emptyMessage" class="hidden mt-4 text-center font-mono text-sm text-[#6b5b85]"></p>
         </ul>
 
         <p id="tasksDone" class="mt-5 text-center font-mono text-sm text-[#6b5b85]">Tasks done <span id="taskDone" class="font-bold">0/0</span></p>
