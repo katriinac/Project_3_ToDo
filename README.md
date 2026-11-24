@@ -17,7 +17,7 @@ An application for tracking tasks that need to be completed. Tasks are marked as
 
 ### Wireframe / sketch
 
-![Wireframe](img/wireframe.png)
+![Wireframe](img/todoapp.png)
 
 ## Web links
 
