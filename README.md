@@ -1,12 +1,14 @@
 # To Do App 
 
-**Author(s):** Katriina Chindjapin
+**Author:** Katriina Chindjapin
 
 ## Project plan
 
 ### Project idea
 
 An application for tracking tasks that need to be completed. Tasks are marked as finished once they are done. The app is suitable for a student who has a large number of course assignments.
+
+For this 2.0 version I have added new styles using TailwindCSS, added a background with Vanta.js and some animations using Animate.css. The functionality is the same as in Project 1, and I have fixed all the previously known issues.
 
 ### Planned features
 
@@ -51,8 +53,11 @@ An application for tracking tasks that need to be completed. Tasks are marked as
 ## Running the application locally
 
 1. Clone or download this repository to your computer.
-2. Open the project folder.
-3. Open index.html in a web browser.
+2. Open the project folder in VS code.
+3. Open the terminal in VS code.
+4. Install the dependencies by npm install.
+5. Then start the server by npm run dev.
+6. Open the URL displayed in the terminal.
 
 ## Screenshots
 
@@ -84,7 +89,7 @@ Reflect on your work and learning process.
 - [Animate.css] (https://animate.style/) I used this to look up effects for my application.
 
 - AI tool used: ChatGPT-5
-  - I used it for styling my webpage with the TailWindCSS. I asked the right ways of making the classes for buttons and inputs. I tried to match them with my previous css style. This way I learned how to implement the classes and make them look nice.
+  - I used it for styling my webpage with the TailWindCSS. I asked the right ways of making the classes for buttons and inputs (Such as the delete button, how do I make it look nice with the x in the middle without using a picture like I previously did.). I tried to match them with my previous css style. This way I learned how to implement the classes and make them look nice.
   - I also used it for configuring the vite.config file to work on github pages.
   - I asked how do I make the vanta background to resize with the body and it provided the very end of my code resizeObserver function. 
 
