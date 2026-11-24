@@ -21,9 +21,9 @@ An application for tracking tasks that need to be completed. Tasks are marked as
 
 ## Web links
 
-- **Published application:** [Add your GitHub Pages URL here](https://yourusername.github.io/your-repository/)
+- **Published application:** [Link to Github Pages](https://katriinac.github.io/Project_3_ToDo/)
 - **GitHub repository:** [Link to Github](https://github.com/katriinac/Project_3_ToDo)
-- **Project video presentation:** [Add your video URL here](https://example.com/)
+- **Project video presentation:** [Link to the video](https://example.com/)
 
 ## About the application
 
@@ -31,13 +31,11 @@ An application for tracking tasks that need to be completed. Tasks are marked as
 
 ## Technologies
 
-Describe the technologies you used and their role in your project.
-
 - HTML – page structure.
 - CSS – styling and layout.
 - JavaScript – functionality, DOM scripting and form validation.
 - LocalStorage – saving data in the browser.
-- 
+- JavaScript libraries.
 
 ## How to use the application
 
@@ -58,17 +56,13 @@ Describe the technologies you used and their role in your project.
 
 ## Screenshots
 
-Add at least one screenshot of your working application.
-
-Example:
-
-![Screenshot of the application](img/screenshot.png)
+![Screenshot of the application](img/completed2.0.png)
 
 ## Known issues / limitations
 
 The previous issues have been fixed in this verson.
 
-If there's too many tasks and the body becomes longer, the Vanta.js background stays cropped, so you need to refresh for it to cover the whole body.
+I haven't come across any issues so far, but I believe that it's possible that there could still be some.
 
 ## Self-assessment and learning reflection
 
@@ -83,23 +77,17 @@ Reflect on your work and learning process.
 
 ## Sources and acknowledgements
 
-List all sources, tutorials, images and code examples used in your project.
-
-If you used ChatGPT, GitHub Copilot or another AI tool, mention it here and briefly explain how it supported your work.
-
 - [Get started with Tailwind CSS](https://tailwindcss.com/docs/installation/using-vite) Installation guide and layout guide.
 
 - [Vanta.js Fog](https://www.vantajs.com/?effect=fog) I used the guide on the site to apply the fog background to my application. I selected the fitting colours using the colour picker on the site, which then provided the code to put into script.js.
 
-- [Animate.css] (https://animate.style/) I used this to look up effects for my application. I used ChatGPT to guide me how to implement the required classes in my js code (asked to explain what I needed to do). 
+- [Animate.css] (https://animate.style/) I used this to look up effects for my application.
 
-- AI tool used: ChatGPT-5, I used it for styling my webpage with the TailWindCSS. I asked the right ways of making the classes for buttons and inputs. I tried to match them with my previous css style. This way I learned how to implement the classes and make them look nice. I also used it for configuring the vite.config file to work on github pages.
-
-  - How the tool was used: ...
+- AI tool used: ChatGPT-5
+  - I used it for styling my webpage with the TailWindCSS. I asked the right ways of making the classes for buttons and inputs. I tried to match them with my previous css style. This way I learned how to implement the classes and make them look nice.
+  - I also used it for configuring the vite.config file to work on github pages.
+  - I asked how do I make the vanta background to resize with the body and it provided the very end of my code resizeObserver function. 
 
 ## License
 
 This project is licensed under the MIT License.
-
-More information about adding a license to a GitHub repository:  
-https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository

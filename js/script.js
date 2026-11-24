@@ -1,4 +1,5 @@
 import '../css/styles.css';
+
 //Creating needed variables
 const inputTask = document.getElementById("inputTask");
 const addButton = document.getElementById("addButton");
@@ -16,7 +17,8 @@ let deleteButtonId = 1;
 inputTask.addEventListener("input", function(){
     const task = inputTask.value;
     charcount.textContent = task.length + " / 100";
-//making the border disappear
+
+//Making the red border disappear
     if(task.trim().length >= 3 && task.trim().length <= 100){
         inputTask.style.border = "";
         inputError.textContent = "";
@@ -40,8 +42,10 @@ function validate(){
 function createCheckbox(taskText){
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
-//adding tailwindcss
+
+//Adding tailwindcss for checkboxes
     checkbox.className = "w-5 h-5 shrink-0 cursor-pointer accent-purple-500";
+
 //Adding classes for checked/unchecked boxes
     checkbox.addEventListener("change", function(){
         if(checkbox.checked){
@@ -59,7 +63,8 @@ function createCheckbox(taskText){
 //Creating the delete button to delete the tasks
 function createDeleteButton(newTask){
     const deleteButton = document.createElement("button");
-//adding the tailwindcss
+
+//Adding tailwindcss for the delete button
     deleteButton.type = "button";
     deleteButton.className = "ml-auto w-6 h-6 shrink-0 rounded-md bg-[#e9cafd] hover:bg-[#d5b4f2] shadow-sm cursor-pointer";
     deleteButton.textContent = "×";
@@ -77,7 +82,8 @@ function createDeleteButton(newTask){
 //Function to create a task. New task is unchecked by default
 function createTasks(task, completed = false){
     const newTask = document.createElement("li");
-//adding tailwindcss and animate
+
+//Adding tailwindcss and animate for the tasks
     newTask.className = "flex items-center gap-3 rounded-xl border border-[#b2a2de] bg-white/60 p-3 font-mono text-slate-700 transition-colors hover:bg-[#f5eafa] animate__animated animate__fadeInUp";
     newTask.dataset.task = task;
     const taskText = document.createElement("span");
@@ -160,7 +166,8 @@ activeButton.addEventListener("click", function(){
     for (let checkbox of checkboxes){
         checkbox.parentElement.hidden = true;
     }
-//showing the no tasks message if empty
+
+//Showing the no tasks message if empty
     const activeTasks = document.querySelectorAll('#taskList input[type="checkbox"]:not(:checked)');
     if(activeTasks.length === 0){
         emptyMessage.textContent = "No active tasks";
@@ -175,7 +182,8 @@ completedButton.addEventListener("click", function(){
     for (let checkbox of checkboxes){
         checkbox.parentElement.hidden = true;
     }
-//showing the no tasks message if empty
+
+//Showing the no tasks message if empty
     const completedTasks = document.querySelectorAll('#taskList input[type="checkbox"]:checked');
     if(completedTasks.length === 0){
         emptyMessage.textContent = "No completed tasks";
@@ -210,7 +218,7 @@ function loadTasks(){
 //To load all the data
 loadTasks();
 showList();
-//adding vanta background
+
 // Vanta fog background effect
 const vantaEffect = VANTA.FOG({
     el: ".content",
@@ -228,10 +236,9 @@ const vantaEffect = VANTA.FOG({
     speed: 2
 });
 
+//Making the vanta.js background to resize with the body so it doesn't randomly crop
 const content = document.querySelector(".content");
-
 const resizeObserver = new ResizeObserver(function(){
     vantaEffect.resize();
 });
-
 resizeObserver.observe(content);
