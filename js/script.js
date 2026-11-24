@@ -212,7 +212,7 @@ loadTasks();
 showList();
 //adding vanta background
 // Vanta fog background effect
-VANTA.FOG({
+const vantaEffect = VANTA.FOG({
     el: ".content",
     mouseControls: true,
     touchControls: true,
@@ -227,3 +227,11 @@ VANTA.FOG({
     zoom: 0.7,
     speed: 2
 });
+
+const content = document.querySelector(".content");
+
+const resizeObserver = new ResizeObserver(function(){
+    vantaEffect.resize();
+});
+
+resizeObserver.observe(content);
